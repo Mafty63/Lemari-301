@@ -368,10 +368,26 @@ void drawBox()
     glutSolidCube(1.0);
     glPopMatrix();
 
-    //  BOARD GAME 7
+    //  BOARD GAME 8
     glPushMatrix();
     glColor4f(1, .5, 0, 1);
     glTranslatef(-1.7, 1.6, .2);
+    glScalef(1, .3, 1);
+    glutSolidCube(1.0);
+    glPopMatrix();
+
+    //  BOARD GAME 9
+    glPushMatrix();
+    glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
+    glTranslatef(-1.7, .8, .9);
+    glScalef(1, .3, 1);
+    glutSolidCube(1.0);
+    glPopMatrix();
+
+    //  BOARD GAME 10
+    glPushMatrix();
+    glColor4f(1.0, 0.0, 1.0, 1.0);
+    glTranslatef(-1.7, .8, -.5);
     glScalef(1, .3, 1);
     glutSolidCube(1.0);
     glPopMatrix();
@@ -674,7 +690,7 @@ void drawBox()
 
 int init(void)
 {
-    // glClearColor(0.93f, 0.93f, 0.93f, 0.0f);
+    glClearColor(.45f, .45f, .45f, .0f);
 
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
@@ -721,8 +737,8 @@ void idle(void)
 {
     if (!mouseDown)
     {
-        xrot += 0.3f;
-        yrot += 0.4f;
+        xrot += 0.01f;
+        yrot += 0.015f;
     }
 
     glutPostRedisplay();
@@ -849,14 +865,14 @@ int main(int argc, char *argv[])
 
     glutCreateWindow("Lemari Game Board");
 
-    glutDisplayFunc(display);
-    glutKeyboardFunc(keyboard);
-    glutSpecialFunc(specialKeyboard);
-    glutMouseFunc(mouse);
-    glutMotionFunc(mouseMotion);
-    glutReshapeFunc(resize);
+    glutDisplayFunc(display);         // fungsi untuk mengeluarkan jendela panel
+    glutKeyboardFunc(keyboard);       // fungsi untuk menangani input keyboard
+    glutSpecialFunc(specialKeyboard); // fungsi untuk menangani input khusus di keyboard (contoh f1, f2)
+    glutMouseFunc(mouse);             // fungsi untuk menangani input dari mouse
+    glutMotionFunc(mouseMotion);      // fungsi untuk menangani pergerakan mouse
+    glutReshapeFunc(resize);          // fungsi unutk menangani perubahan jendela panel
     mySpecialFunction();
-    // glutIdleFunc(idle);
+    glutIdleFunc(idle); // fungsi untuk idle
 
     if (!init())
         return 1;
