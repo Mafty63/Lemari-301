@@ -6,7 +6,7 @@ program ini adalah program openGL untuk menggambar lemari
 
 Hasil gambar:
 
-   !![Hasil gambar](Result.png)
+
    
 Perintah :
 
